@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*'
+    branches:
+      - '*'
   workflow_dispatch:
     inputs:
       tags:
@@ -11,6 +13,11 @@ on:
         required: true
         type: string
         default: 'latest'
+      branch:
+        description: 'Branch to run the workflow on'
+        required: true
+        type: string
+        default: 'main'
 
 jobs:
   build:
